@@ -6,7 +6,7 @@
 
     <groupId>com.simple</groupId>
     <artifactId>jdub_2.9.1</artifactId>
-    <version>0.0.9.0</version>
+    <version>0.0.9.1</version>
     <name>Jdub for Scala ${scala.version}</name>
 
     <properties>
@@ -226,4 +226,3 @@
         </plugins>
     </reporting>
 </project>
-
