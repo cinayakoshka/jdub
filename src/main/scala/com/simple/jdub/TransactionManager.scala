@@ -5,11 +5,19 @@
 
 package com.simple.jdub
 
-class TransactionManager {
+trait TransactionProvider {
+  def transactionExists: Boolean
+  def currentTransaction: Transaction
+  def begin(transaction: Transaction)
+  def end
+  def rollback
+}
+
+class TransactionManager extends TransactionProvider{
   case class TransactionState(transaction: Transaction, nestCount: Int)
 
-  private val localTransactionStorage = new ThreadLocal[Option[TransactionState]] { 
-    override def initialValue = None 
+  private val localTransactionStorage = new ThreadLocal[Option[TransactionState]] {
+    override def initialValue = None
   }
 
   protected def ambientTransactionState = {
