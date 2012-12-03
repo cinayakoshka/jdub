@@ -68,9 +68,9 @@ class Database protected(source: DataSource, pool: GenericObjectPool, name: Stri
   var transactionProvider: TransactionProvider = new TransactionManager
 
   /**
-    * Opens a transaction which is committed after `f` is called. If `f` throws
-    * an exception, the transaction is rolled back.
-    */
+   * Opens a transaction which is committed after `f` is called. If `f` throws
+   * an exception, the transaction is rolled back.
+   */
   def transaction[A](f: Transaction => A): A = transaction(true, f)
 
   /**
