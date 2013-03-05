@@ -4,16 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.simple</groupId>
-    <artifactId>jdub_2.9.1</artifactId>
-    <version>0.0.9.4</version>
+    <groupId>com.codahale</groupId>
+    <artifactId>jdub_2.9.2</artifactId>
+    <version>0.0.10</version>
     <name>Jdub for Scala ${scala.version}</name>
 
     <properties>
-        <scala.version>2.9.1</scala.version>
+        <scala.version>2.9.2</scala.version>
     </properties>
 
     <developers>
+        <developer>
+            <name>Coda Hale</name>
+            <email>coda.hale@gmail.com</email>
+            <timezone>-8</timezone>
+        </developer>
+        <developer>
+            <name>Simple</name>
+            <email>suport@simple.com</email>
+            <timezone>-8</timezone>
+        </developer>
         <developer>
             <name>Ian Eure</name>
             <email>ian.eure@gmail.com</email>
@@ -30,18 +40,21 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/ieure/jdub.git</connection>
-        <developerConnection>scm:git:git@github.com:ieure/jdub.git</developerConnection>
-        <url>http://github.com/ieure/jdub/</url>
+        <connection>scm:git:git://github.com/SimpleFinance/jdub.git</connection>
+        <developerConnection>scm:git:git@github.com:SimpleFinance/jdub.git</developerConnection>
+        <url>http://github.com/SimpleFinance/jdub/</url>
     </scm>
 
     <issueManagement>
         <system>github</system>
-        <url>http://github.com/ieure/jdub/issues#issue/</url>
+        <url>http://github.com/SimpleFinance/jdub/issues#issue/</url>
     </issueManagement>
 
     <repositories>
-        <repository>
+      <repository>
+          <id>public</id>
+          <url>http://nexus.banksimple.com/content/repositories/public</url>
+      </repository>        <repository>
             <id>scala-tools-releases</id>
             <url>http://scala-tools.org/repo-releases/</url>
         </repository>
@@ -58,26 +71,6 @@
         </pluginRepository>
     </pluginRepositories>
 
-<!--    <distributionManagement>
-        <repository>
-            <id>repo.codahale.com</id>
-            <url>scpexe://codahale.com/home/codahale/repo.codahale.com/</url>
-        </repository>
-    </distributionManagement>-->
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>Simple Releases</name>
-            <url>http://nexus.banksimple.com/content/repositories/releases</url>
-        </repository>
-        <!-- use the following if you ARE using a snapshot version. -->
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Simple Snapshots</name>
-            <url>http://nexus.banksimple.com/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -86,13 +79,8 @@
         </dependency>
         <dependency>
             <groupId>com.yammer.metrics</groupId>
-            <artifactId>metrics-scala_${scala.version}</artifactId>
-            <version>2.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yammer.dropwizard</groupId>
-            <artifactId>dropwizard-scala_${scala.version}</artifactId>
-            <version>0.4.0</version>
+            <artifactId>metrics-scala_2.9.1</artifactId>
+            <version>2.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -100,9 +88,14 @@
             <version>7.0.25</version>
         </dependency>
         <dependency>
+            <groupId>org.clapper</groupId>
+            <artifactId>grizzled-slf4j_2.9.2</artifactId>
+            <version>0.6.10</version>
+        </dependency>
+        <dependency>
             <groupId>com.simple</groupId>
             <artifactId>simplespec_${scala.version}</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -226,3 +219,4 @@
         </plugins>
     </reporting>
 </project>
+

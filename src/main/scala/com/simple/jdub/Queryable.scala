@@ -5,10 +5,9 @@
 
 package com.simple.jdub
 
-import java.sql.Connection
-
-import com.yammer.dropwizard.Logging
 import com.yammer.metrics.scala.Instrumented
+import grizzled.slf4j.Logging
+import java.sql.Connection
 
 trait Queryable extends Logging with Instrumented {
   import Utils._
@@ -18,8 +17,8 @@ trait Queryable extends Logging with Instrumented {
    */
   def apply[A](connection: Connection, query: RawQuery[A]): A = {
     query.timer.time {
-      if (log.isDebugEnabled) {
-        log.debug("%s with %s".format(
+      if (isDebugEnabled) {
+        debug("%s with %s".format(
           query.sql, query.values.mkString("(", ", ", ")")))
       }
       val stmt = connection.prepareStatement(prependComment(query, query.sql))
@@ -42,8 +41,8 @@ trait Queryable extends Logging with Instrumented {
    */
   def execute(connection: Connection, statement: Statement): Int = {
     statement.timer.time {
-      if (log.isDebugEnabled) {
-        log.debug("%s with %s".format(
+      if (isDebugEnabled) {
+        debug("%s with %s".format(
           statement.sql, statement.values.mkString("(", ", ", ")")))
       }
       val stmt = connection.prepareStatement(prependComment(statement, statement.sql))
