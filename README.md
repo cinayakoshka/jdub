@@ -19,18 +19,11 @@ How To Use
 **First**, specify Jdub as a dependency:
 
 ```xml
-<repositories>
-  <repository>
-    <id>repo.codahale.com</id>
-    <url>http://repo.codahale.com</url>
-  </repository>
-</repositories>
-
 <dependencies>
   <dependency>
-    <groupId>com.codahale</groupId>
-    <artifactId>jdub_${scala.version}</artifactId>
-    <version>0.0.7</version>
+    <groupId>com.simple</groupId>
+    <artifactId>jdub_2.9.2</artifactId>
+    <version>0.1.0</version>
   </dependency>
 </dependencies>
 ```
